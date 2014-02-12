@@ -1,0 +1,7 @@
+name: Example
+dependencies:
+  polymer: any
+  ped: any
+transformers:
+- polymer:
+    entry_points: web/index.html
