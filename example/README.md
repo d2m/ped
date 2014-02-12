@@ -3,5 +3,5 @@ ped example
 
 Usage: 
  
-  1)  dart toViz.dart
-  2)  google-chrome _ped.html
+    dart toViz.dart
+    google-chrome _ped.html
