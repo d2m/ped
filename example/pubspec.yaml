@@ -1,6 +1,7 @@
 name: Example
 dependencies:
   polymer: any
+dev_dependencies:
   ped: any
 transformers:
 - polymer:
