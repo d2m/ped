@@ -3,10 +3,10 @@ Polymer Element Dependencies
 `ped` is a package to inspect and document your polymer app element hierarchies.
 
 ## Installation
-Add `ped` as a `dev_dependencies` in your project `pubspec.yaml` file.
+Add **ped** to `dev_dependencies` in your project `pubspec.yaml` file.
 
 ## Usage
-`ped` provides two public functions *toJson* and *toViz*. 
+`ped` provides two public functions **toJson** and **toViz**. 
 Each of them scans your polymer project (starting from a given *entry_point*) 
 and creates a structure of imported components, polymer-element declarations 
 and uses.
@@ -32,13 +32,13 @@ Viewing the file renders the dot-representation inside the browser.
 [https://github.com/mdaines/viz.js](https://github.com/mdaines/viz.js) for 
 rendering the directed graph in the browser.*
 
-## Paths
+## Entry_Points
 Both *toJson* and *toViz* can be used with and without a filename / entry_point.
 
 - **without an entry_point**: the filename is taken from the 
-*transformer.polymer* entry_point value in *pubspec.yaml*. In this case the dart
-script should be run from project root directory (same as the *pubspec.yaml* 
-file).
+*transformers.polymer* entry_point value in *pubspec.yaml*. In this case the 
+dart script should be run from project root directory (same as the 
+*pubspec.yaml* file).
 
 - **with an entry_point**: render arbitrary polymer project hierarchies 
 (see `test/toJson_test.dart`). 

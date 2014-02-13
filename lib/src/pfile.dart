@@ -4,8 +4,14 @@ import 'dart:io';
 import 'package:html5lib/parser.dart' show parse;
 import 'package:html5lib/dom.dart';
 
+/**
+ * represents an HTML file used in the polymer app
+ */
 class PFile {
   
+  /**
+   * lookup for polymer-element names
+   */
   static Set declared = new Set();
 
   List declarations;
@@ -15,6 +21,9 @@ class PFile {
   List uses;
   List warnings;
   
+  /**
+   * constructor, reads the HTML file, parses it and stores its imports
+   */
   PFile(this.filename){
     File f = new File(filename);
     String dir = f.parent.path;
@@ -25,6 +34,9 @@ class PFile {
     updateImports(dir);
   }
   
+  /**
+   * collects all imported files
+   */
   void updateImports(String dir) {
     List links = parsed_contents.queryAll('link');
     List match = new List();
@@ -36,6 +48,11 @@ class PFile {
     imports = match;
   }
   
+  /**
+   * collects all 'polymer-element' declarations in the file
+   * 
+   * declared names are stored in a class variable for later lookup
+   */
   void updateDeclarations() {
     List elements = parsed_contents.queryAll('polymer-element');
     List match = new List();
@@ -47,8 +64,15 @@ class PFile {
     PFile.declared.addAll(match);
   }
   
+  /**
+   * collects all components used in a file
+   */
   void updateUses() {
     
+    /**
+     * parse
+     *    <div is="polymer-element-name"></div>
+     */
     queryIs(Node element, String isName) {
       for (var node in element.nodes) {
         if (node is! Element) continue;
