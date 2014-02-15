@@ -1,6 +1,7 @@
 library pdir;
 
 import 'dart:convert';
+import 'package:path/path.dart' as path;
 import 'pfile.dart';
 
 /**
@@ -14,16 +15,21 @@ class PDir {
   
   PDir(this.root){
     pdir = new Map();
-    updateImports(root);
+    updateImports(_normalizePath(root));
     pdir.keys.forEach(updateDeclarations);
     pdir.keys.forEach(updateUses);
     pdir.keys.forEach(updateWarnings);
   }
-  
+   
+  String _normalizePath(filename) {
+    return path.normalize(filename);
+  }
+
   /**
    * recursively collects all imported HTML files
    */
   void updateImports(String filename) {
+    filename = _normalizePath(filename);
     if (pdir.containsKey(filename) == false) {
       PFile pf = new PFile(filename);
       pdir[filename] = pf;

@@ -1,6 +1,7 @@
 library pfile;
 
 import 'dart:io';
+import 'package:path/path.dart' as path;
 import 'package:html5lib/parser.dart' show parse;
 import 'package:html5lib/dom.dart';
 
@@ -14,11 +15,29 @@ class PFile {
    */
   static Set declared = new Set();
 
+  /**
+   * list of declarations inside the HTML file
+   */
   List declarations;
+  /**
+   * full path of the HTML file
+   */
   String filename;
+  /**
+   * list of imported HTML files
+   */
   List imports;
+  /**
+   * parsed HTML content
+   */
   Document parsed_contents;
+  /**
+   * list of polymer-elements used in the HTML file
+   */
   List uses;
+  /**
+   * list of imported but unused HTML files
+   */
   List warnings;
   
   /**
@@ -42,7 +61,7 @@ class PFile {
     List match = new List();
     for (Element l in links) {
       if (l.attributes['rel'].toLowerCase() == 'import') {
-        match.add(dir + '/' + l.attributes['href']);
+        match.add(path.normalize(dir + '/' + l.attributes['href']));
       }
     }            
     imports = match;

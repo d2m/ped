@@ -8,7 +8,7 @@ Add **ped** to `dev_dependencies` in your project `pubspec.yaml` file.
 ## Usage
 `ped` provides two public functions **toJson** and **toViz**. 
 Each of them scans your polymer project (starting from a given *entry_point*) 
-and creates a structure of imported components, polymer-element declarations 
+and records the structure of imported components, polymer-element declarations 
 and uses.
 
 ### toJson()
@@ -26,7 +26,7 @@ included to the file `_ped.html` in the current directory.
 
 Viewing the file renders the dot-representation inside the browser.
 
-![Figure 1: toViz() screenshot](figure1.png "Screenshot")
+![Figure 1: toViz() screenshot](https://raw2.github.com/d2m/ped/master/figure1.png "Screenshot")
 
 *The package uses a version of `viz.js` 
 [https://github.com/mdaines/viz.js](https://github.com/mdaines/viz.js) for 
