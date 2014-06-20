@@ -45,6 +45,7 @@ void toViz([String entry_point = null]) {
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- created with http://pub.dartlang.org/packages/ped -->
     <!-- output: SVG (via https://github.com/mdaines/viz.js/) -->
     <title>Polymer-Element Dependencies</title>
   </head>

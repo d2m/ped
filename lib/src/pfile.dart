@@ -57,7 +57,7 @@ class PFile {
    * collects all imported files
    */
   void updateImports(String dir) {
-    List links = parsed_contents.queryAll('link');
+    List links = parsed_contents.querySelectorAll('link');
     List match = new List();
     for (Element l in links) {
       if (l.attributes['rel'].toLowerCase() == 'import') {
@@ -73,7 +73,7 @@ class PFile {
    * declared names are stored in a class variable for later lookup
    */
   void updateDeclarations() {
-    List elements = parsed_contents.queryAll('polymer-element');
+    List elements = parsed_contents.querySelectorAll('polymer-element');
     List match = new List();
     for (Element l in elements) {
       String _name = l.attributes['name'];
@@ -106,7 +106,7 @@ class PFile {
     }
 
     for (String s in PFile.declared) {
-      Element match1 = parsed_contents.query(s);
+      Element match1 = parsed_contents.querySelector(s);
       Element match2 = queryIs(parsed_contents, s);
       if (match1 != null || match2 != null) {
         uses.add(s);

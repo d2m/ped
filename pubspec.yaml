@@ -1,5 +1,5 @@
 name: ped
-version: 0.0.3
+version: 0.0.4
 author: Michael Haubenwallner <michael.haubenwallner@gmail.com>
 description: polymer-element dependencies
 homepage: https://github.com/d2m/ped
@@ -9,5 +9,5 @@ dependencies:
   yaml: any
 dev_dependencies:
   browser: any
-  polymer: any
+  polymer: '>=0.10.0 <0.11.0'
   unittest: any
