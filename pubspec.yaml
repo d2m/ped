@@ -4,9 +4,9 @@ author: Michael Haubenwallner <michael.haubenwallner@gmail.com>
 description: polymer-element dependencies
 homepage: https://github.com/d2m/ped
 dependencies:
-  html5lib: any
-  path: any
-  yaml: any
+  html5lib: ">=0.11.0+1 <0.12.0"
+  path: ">=1.2.1 <2.0.0"
+  yaml: ">=1.0.0+2 <2.0.0"
 dev_dependencies:
   browser: any
   polymer: '>=0.10.0 <0.11.0'
