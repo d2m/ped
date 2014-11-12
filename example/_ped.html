@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- created with http://pub.dartlang.org/packages/ped -->
+    <!-- output: SVG (via https://github.com/mdaines/viz.js/) -->
+    <title>Polymer-Element Dependencies</title>
+  </head>
+  <body>
+    <script type="text/vnd.graphviz" id="cluster">
+digraph G {
+  node [label="N", shape=record, style="rounded"];
+  edge [];
+  rankdir=LR;
+  2 [label="{index.html | #2} |  | click-counter "];
+  2 -> 3 [color="yellow"];
+  2 -> 1;
+  3 [label="{polymer.html | #3} |  |  "];
+  3 -> 5 [color="yellow"];
+  5 [label="{polymer.html | #5} |  |  "];
+  5 -> 4 [color="yellow"];
+  4 [label="{polymer-body.html | #4} | polymer-body |  "];
+  1 [label="{clickcounter.html | #1} | click-counter |  "];
+  legend [label="{filename | legend #n} | declarations | uses", pos="0,0!" color="red"];
+  legend -> legend [label="imports"];
+  legend -> legend [label="imports, not used", color="yellow"];
+  1 -> legend [style=invis];
+}    </script>
+    <script src="http://dartlabs.appspot.com/static/viz.js"></script>
+    <script>
+      var id = 'cluster';
+      var format = 'svg';      
+      function inspect(s) {
+        return "<pre>" + s.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;") + "</pre>"}      
+      function src(id) {
+        return document.getElementById(id).innerHTML;}      
+      function example() {
+        var result;
+        try {
+          result = Viz(src(id), format);
+          if (format === "svg")
+            return result;
+          else
+            return inspect(result);
+        } catch(e) {
+          return inspect(e.toString());
+        }
+      }
+      document.body.innerHTML += '<h1>Polymer-Element Dependencies</h1>';              
+      document.body.innerHTML += example();              
+      document.body.innerHTML += "<p><b>Legend:</b></p><ol><li>example/web/clickcounter.html</li><li>example/web/index.html (#entry_point)</li><li>example/web/packages/polymer/polymer.html</li><li>example/web/packages/polymer/src/js/polymer/polymer-body.html</li><li>example/web/packages/polymer/src/js/polymer/polymer.html</li></ol>";              
+    </script>
+  </body>
+</html>

@@ -26,11 +26,13 @@ included to the file `_ped.html` in the current directory.
 
 Viewing the file renders the dot-representation inside the browser.
 
-![Figure 1: toViz() screenshot](https://raw2.github.com/d2m/ped/master/figure1.png "Screenshot")
+![Figure 1: toViz() screenshot](https://raw.githubusercontent.com/d2m/ped/master/figure1.png "Screenshot")
 
 *The package uses a version of `viz.js` 
 [https://github.com/mdaines/viz.js](https://github.com/mdaines/viz.js) for 
 rendering the directed graph in the browser.*
+
+**Example**: a full rendered example is in `ped/example/_ped.html`.
 
 ## Entry_Points
 Both *toJson* and *toViz* can be used with and without a filename / entry_point.
